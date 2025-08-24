@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Para la lista de hoteles */
+.separacion_lista_hotel{
+  @apply  flex justify-center gap-8;
+}
+
+.nombre_lista_hoteles{
+  @apply text-2xl negrita mb-4 border-b-2 border-black ;
+}
+
+.hoteles{
+  @apply mb-2 negrita text-xl;
+}
+
+/* Para la letras */
+.negrita{
+  @apply font-bold;
+}
+
+/* Para el contorno del formulario */
+.estructura_fondo{
+  @apply  rounded-lg p-8 shadow-2xl;
+}
+
+/* Para la separación entre preguntas */
+.separacion{
+  @apply p-2;
+}
+
+.separacion_pregunta{
+  @apply block mb-2;
+}
+
+/* Dandole estilo al input */
+.configuracion_inputs{
+  @apply p-2 border rounded-xl text-center;
+}
+
+/* Validación inputs */
+
+.invalido{
+  @apply  border-red-500 border-2;
+}
+
+.valido{
+  @apply border-gray-300 border
+}
+
+/* Alinear la pregunta con el checkbox */
+.centrar_checkbox_pregunta{
+  @apply  flex justify-center items-center;
+}
+
+.alinear_pregunta_checkbox{
+  @apply flex items-center
+}
+
+.checkbox{
+  @apply ml-2;
+  @apply h-5 w-5 text-blue-600;
+}
+
+/* Estilo para tiutlos y subtitulos */
+.titulo {
+  @apply text-5xl font-bold;
+}
+
+.subtitulo{
+  @apply text-black;
+  
+  @apply text-2xl;
+}
+
+/* Estilo para el boton */
+
+.boton{
+  @apply bg-green-700 text-white py-2 px-4 rounded-lg shadow-md;
+}
+
+.hover_boton{
+  @apply hover:bg-green-800  transition-colors duration-300
+}
+
+
+
+
