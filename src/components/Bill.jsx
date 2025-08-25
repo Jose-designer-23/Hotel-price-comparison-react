@@ -11,12 +11,14 @@ function Bill({
     alquilaCoche,
     diasCoche,
     descuentoCoche,
+    costeBrutoCoche,
     costeCoche,
 
     //Precios totales
     costeTotal,
     monedaSeleccionada,
     costeTotalConvertido,
+    costeBrutoHotel,
 
     //Conversión
     simboloMoneda
@@ -36,8 +38,10 @@ function Bill({
                 <p className="text-base text-gray-700">Para {personas} {pluralizar(personas, "persona", "personas")}, {diasAlojado} {pluralizar(diasAlojado, "noche", "noches")}.</p>
                 <p className="text-base text-gray-700">El precio por persona es de: {precioDia}€</p>
                 {descuentoHotel > 0 && (
-
-                    <p className="text-base text-gray-700">Con un descuento de {descuentoHotel}%</p>
+                    <div>
+                        <p className="text-base text-gray-700">Coste base de la habitación: {costeBrutoHotel}€</p>
+                        <p className="text-base text-gray-700">Ahorro por descuento ({descuentoHotel}%): -{costeBrutoHotel * descuentoHotel / 100}€</p>
+                    </div>
 
                 )}
            
@@ -48,7 +52,10 @@ function Bill({
                     <h3 className="negrita">Alquiler del coche: {costeCoche}€</h3>
                     <p className="text-base text-gray-700">Para {diasCoche} {pluralizar(diasCoche, "día", "días")}.</p>
                     {descuentoCoche > 0 && (
-                        <p className="text-base text-gray-700">Con un descuento del {descuentoCoche}%</p>
+                        <div>
+                            <p className="text-base text-gray-700">Coste base del coche: {costeBrutoCoche}€</p>
+                            <p className="text-base text-gray-700">Ahorro por descuento ({descuentoCoche}%): -{costeBrutoCoche * descuentoCoche / 100}€</p>
+                        </div>
                     )}
                 </div>
             )}

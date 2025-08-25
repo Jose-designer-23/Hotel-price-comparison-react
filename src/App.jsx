@@ -69,37 +69,37 @@ function App() {
       PHP: "₱",
     };
 
-   
+    const costeBrutoHotelLocal = precioDia * personas * diasAlojado;
+    const costeBrutoCocheLocal = alquilaCoche ? precioCoche * diasCoche : 0;
 
     const handleSubmit = (e) => {
-      e.preventDefault();
+        e.preventDefault();
 
-      setHotelSeleccionado(null);
+        setHotelSeleccionado(null);
 
-      if (
-      nombreHotel.trim() === "" ||
-      personas <= 0 ||
-      precioDia <= 0 ||
-      diasAlojado <= 0
-    ) {
-   
-      return;
-    }
+        if (
+        nombreHotel.trim() === "" ||
+        personas <= 0 ||
+        precioDia <= 0 ||
+        diasAlojado <= 0
+      ) {
+    
+        return;
+      }
 
-
-      const costeBrutoHotel = (precioDia * personas * diasAlojado);
-
-      const totalHotel = costeBrutoHotel * (1 - descuentoHotel / 100);
+      const totalHotel = costeBrutoHotelLocal * (1 - descuentoHotel / 100);
 
       setCosteHotel(totalHotel);
+
+     
       
       let totalCoche = 0;
 
       if(alquilaCoche) {
 
-        const costeBrutoCoche = (precioCoche * diasCoche);
+        const costeBrutoCocheLocal = (precioCoche * diasCoche);
   
-        totalCoche = costeBrutoCoche * (1 - descuentoCoche / 100);
+        totalCoche = costeBrutoCocheLocal * (1 - descuentoCoche / 100);
   
         setCosteCoche(totalCoche);
 
@@ -108,6 +108,8 @@ function App() {
       const nuevoHotel = {
           nombre: nombreHotel,
           coste: totalHotel,
+            costeBrutoHotel: costeBrutoHotelLocal,
+            costeBrutoCoche: costeBrutoCocheLocal,
             personas,
             precioDia,
             diasAlojado,
@@ -148,8 +150,6 @@ function App() {
       }
 
     }, [costeTotal, monedaSeleccionada, mostrarFactura, apikey]);
-
-
 
 
     return (
@@ -308,6 +308,8 @@ function App() {
                   monedaSeleccionada={hotelSeleccionado ? hotelSeleccionado.monedaSeleccionada : monedaSeleccionada}
                   simboloMoneda={simboloMoneda}
                   precioDia={hotelSeleccionado ? hotelSeleccionado.precioDia : precioDia}
+                  costeBrutoHotel={hotelSeleccionado ? hotelSeleccionado.costeBrutoHotel : costeBrutoHotelLocal}
+                  costeBrutoCoche={hotelSeleccionado ? hotelSeleccionado.costeBrutoCoche : costeBrutoCocheLocal}
 
                 />
 
