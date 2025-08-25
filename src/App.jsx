@@ -307,6 +307,7 @@ function App() {
                   costeTotalConvertido={hotelSeleccionado ? null : costeTotalConvertido}
                   monedaSeleccionada={hotelSeleccionado ? hotelSeleccionado.monedaSeleccionada : monedaSeleccionada}
                   simboloMoneda={simboloMoneda}
+                  precioDia={hotelSeleccionado ? hotelSeleccionado.precioDia : precioDia}
 
                 />
 

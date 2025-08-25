@@ -2,6 +2,7 @@
 function Bill({
     //Datos del hotel
     personas,
+    precioDia,
     diasAlojado,
     descuentoHotel,
     costeHotel,
@@ -33,6 +34,7 @@ function Bill({
             <div className="mb-4">
                 <h3 className="negrita">Habitación de hotel: {costeHotel}€</h3>
                 <p className="text-base text-gray-700">Para {personas} {pluralizar(personas, "persona", "personas")}, {diasAlojado} {pluralizar(diasAlojado, "noche", "noches")}.</p>
+                <p className="text-base text-gray-700">El precio por persona es de: {precioDia}€</p>
                 {descuentoHotel > 0 && (
 
                     <p className="text-base text-gray-700">Con un descuento de {descuentoHotel}%</p>
